@@ -18,6 +18,18 @@
         <!-- <img src="{{ url_for('static', filename='img.jpg') }}"> -->
     </head>
     <body>
-        <h1>Assignment Counter</h1>
+        <h1>Counter</h1>
+        <h2>Counting Using Sessions</h2>
+
+        <form action="/users">
+            <label for="name">Name: </label>
+            <input type="text" name="name">
+
+            <label for="email">Email: </label>
+            <input type="text" name="email">
+
+            <input type="submit" value="Create User">
+
+        </form>
     </body>
 </html>

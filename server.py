@@ -7,24 +7,30 @@ app.secret_key = "secret key"
 
 @app.route('/')
 def root():
-    if session['sc'] < 1:
-        session['sc'] = 0
-    else:
+    if 'sc' in session:
         session['sc'] = session['sc'] + 1
+    else:
+        session['sc'] = 1
     return render_template("index.html")
 
 @app.route('/users', methods=['POST'])
 def create_user():
     # print("Got Post Info")
     # Here we add two properties to session to store the name and email
-    if session['sc'] < 1:
-        session['sc'] = 0
-    else:
-        session['sc'] = session['sc'] + 1
     session['username'] = request.form['name']
     session['useremail'] = request.form['email']
     return redirect('/#')
     # return redirect('/show')
+
+@app.route('/add2', methods=['POST'])
+def add_two_sessions():
+    session['sc'] = session['sc'] + 1
+    return redirect('/#')
+
+@app.route('/destroy_session', methods=['POST'])
+def destroy_session():
+    return redirect('/#')
+    
 
 @app.route('/show')
 def show_user():

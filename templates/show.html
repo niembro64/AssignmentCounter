@@ -18,17 +18,9 @@
         <!-- <img src="{{ url_for('static', filename='img.jpg') }}"> -->
     </head>
     <body>
-        <h1>INDEX</h1>
-        <h2>Counting Using Sessions</h2>
+        <h1>SHOW</h1>
 
-        <form action="/users" method="post">
-            <label for="name">Name: </label>
-            <input type="text" name="name" />
-
-            <label for="email">Email: </label>
-            <input type="text" name="email" />
-
-            <input type="submit" value="Create User" />
-        </form>
+        <h2>{{session['username']}}</h2>
+        <h2>{{session['useremail']}}</h2>
     </body>
 </html>

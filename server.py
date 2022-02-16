@@ -29,7 +29,13 @@ def add_two_sessions():
 
 @app.route('/destroy_session', methods=['POST'])
 def destroy_session():
-    return redirect('/#')
+    session.clear()
+    return redirect('/')
+
+@app.route('/reset_sc', methods=['POST'])
+def reset_sc():
+    session.pop('sc')
+    return redirect('/')
     
 
 @app.route('/show')
